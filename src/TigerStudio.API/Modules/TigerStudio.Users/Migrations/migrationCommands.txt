@@ -1,0 +1,12 @@
+﻿
+// Enable data migrations for the current project
+Enable-Migrations –EnableAutomaticMigrations
+
+// Generate migration class based on the current code first models
+Add-Migration Init
+
+// Apply pending migrations to database
+Update-Database [–force] // force option to drop database first
+
+Refer to below article for more information:
+http://msdn.microsoft.com/en-us/data/JJ591621.aspx

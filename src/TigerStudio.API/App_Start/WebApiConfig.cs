@@ -1,30 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web.Http;
-using Microsoft.Owin.Security.OAuth;
+using System.Web.Http.Dispatcher;
+using Autofac;
+using Autofac.Integration.WebApi;
 using Newtonsoft.Json.Serialization;
+using TigerStudio.Framework.WebApiExtensions;
 
 namespace TigerStudio.API
 {
     public static class WebApiConfig
     {
-        public static void Register(HttpConfiguration config)
+        public static void Register(HttpConfiguration config, ContainerBuilder builder)
         {
-            // Web API configuration and services
-            // Configure Web API to use only bearer token authentication.
-            config.SuppressDefaultHostAuthentication();
-            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            var assemblyResolver = new ExtendedDefaultAssembliesResolver(builder);
+            config.Services.Replace(typeof(IAssembliesResolver), assemblyResolver);
 
-            // Web API routes
-            config.MapHttpAttributeRoutes();
+            // Register Web API controller in executing assembly.
+            foreach (var assembly in assemblyResolver.GetAssemblies())
+            {
+                builder.RegisterApiControllers(assembly);
+            }
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
-            );
+                );
+
+            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }
 }

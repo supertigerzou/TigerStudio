@@ -11,7 +11,6 @@ using TigerStudio.Framework.Data;
 using TigerStudio.Framework.Helpers;
 using TigerStudio.Framework.Services;
 using TigerStudio.Users.Data;
-using ILogger = Microsoft.Owin.Logging.ILogger;
 
 //[assembly: OwinStartup(typeof(TigerStudio.API.Startup))]
 

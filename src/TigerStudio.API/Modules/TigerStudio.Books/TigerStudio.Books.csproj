@@ -54,13 +54,13 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -80,9 +80,9 @@
     <Compile Include="Data\DomainModels\AuthorEntityPictureMap.cs" />
     <Compile Include="Data\DomainModels\BookEntityPictureMap.cs" />
     <Compile Include="Data\DomainModels\BookMap.cs" />
-    <Compile Include="Migrations\201411040757581_init.cs" />
-    <Compile Include="Migrations\201411040757581_init.Designer.cs">
-      <DependentUpon>201411040757581_init.cs</DependentUpon>
+    <Compile Include="Migrations\201501280126552_Init.cs" />
+    <Compile Include="Migrations\201501280126552_Init.Designer.cs">
+      <DependentUpon>201501280126552_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitializeBooksData.cs" />
@@ -100,12 +100,6 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\TigerStudio\TigerStudio.Framework.csproj">
-      <Project>{b832a512-bf4c-4cb5-839d-6bea05ebe0a9}</Project>
-      <Name>GreenField.Framework</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Migrations\Images\Books\FreedomFromTheKnown_1_large.jpg">
@@ -218,8 +212,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201411040757581_init.resx">
-      <DependentUpon>201411040757581_init.cs</DependentUpon>
+    <ProjectReference Include="..\..\..\TigerStudio\TigerStudio.Framework.csproj">
+      <Project>{b832a512-bf4c-4cb5-839d-6bea05ebe0a9}</Project>
+      <Name>TigerStudio.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201501280126552_Init.resx">
+      <DependentUpon>201501280126552_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("TigerStudio.Users")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("EF")]
+[assembly: AssemblyCompany("TigerStudio")]
 [assembly: AssemblyProduct("TigerStudio.Users")]
 [assembly: AssemblyCopyright("Copyright © EF 2014")]
 [assembly: AssemblyTrademark("")]

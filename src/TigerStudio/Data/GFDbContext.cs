@@ -39,7 +39,6 @@ namespace TigerStudio.Framework.Data
                 dynamic configurationInstance = Activator.CreateInstance(type);
                 modelBuilder.Configurations.Add(configurationInstance);
             }
-
         }
 
 

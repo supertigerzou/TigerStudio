@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace TigerStudio.Books.Controllers
 {
-    [RoutePrefix("api/Authors")]
+    [RoutePrefix("api/authors")]
     public class AuthorsController : ApiController
     {
         private readonly IAuthorService _authorService;

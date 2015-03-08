@@ -8,7 +8,7 @@ using System.Web.Http;
 namespace TigerStudio.Books.Controllers
 {
     [Authorize]
-    [RoutePrefix("api/Books")]
+    [RoutePrefix("api/books")]
     public class BooksController : ApiController
     {
         private readonly IBookService _bookService;

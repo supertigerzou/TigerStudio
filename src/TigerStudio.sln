@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TigerStudio.Users", "TigerS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TigerStudio.Books", "TigerStudio.API\Modules\TigerStudio.Books\TigerStudio.Books.csproj", "{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TigerStudio.Wechat", "TigerStudio.API\Modules\TigerStudio.Wechat\TigerStudio.Wechat.csproj", "{7183E0D5-8504-4E86-9317-747E2CE5F84B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7183E0D5-8504-4E86-9317-747E2CE5F84B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7183E0D5-8504-4E86-9317-747E2CE5F84B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7183E0D5-8504-4E86-9317-747E2CE5F84B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7183E0D5-8504-4E86-9317-747E2CE5F84B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,5 +67,6 @@ Global
 		{14D8A31F-E4AE-469F-9694-7D54A7E6F1B0} = {E409D8AC-B0CD-4F36-BD1F-6F0B6A286F32}
 		{31808348-D9F2-400E-8AEA-DF2E38D70DCD} = {715F9694-EFD0-4BC4-8E18-D0727A144171}
 		{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9} = {715F9694-EFD0-4BC4-8E18-D0727A144171}
+		{7183E0D5-8504-4E86-9317-747E2CE5F84B} = {715F9694-EFD0-4BC4-8E18-D0727A144171}
 	EndGlobalSection
 EndGlobal

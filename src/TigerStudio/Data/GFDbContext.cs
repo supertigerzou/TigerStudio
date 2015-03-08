@@ -11,11 +11,11 @@ using TigerStudio.Framework.Data.DomainModels;
 
 namespace TigerStudio.Framework.Data
 {
-    public class GFDbContext : AuthContext, IDbContext
+    public class TSDbContext : AuthContext, IDbContext
     {
         #region Ctor
 
-        public GFDbContext(string nameOrConnectionString)
+        public TSDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
             //((IObjectContextAdapter) this).ObjectContext.ContextOptions.LazyLoadingEnabled = true;

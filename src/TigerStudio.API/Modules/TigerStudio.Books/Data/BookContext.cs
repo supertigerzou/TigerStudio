@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace TigerStudio.Books.Data
 {
-    public class BookContext : GFDbContext
+    public class BookContext : TSDbContext
     {
         public BookContext()
             : base("TigerStudio")

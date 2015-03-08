@@ -175,3 +175,6 @@ FakesAssemblies/
 
 # privacy
 connections.config
+
+# program generated pics
+thumbs/

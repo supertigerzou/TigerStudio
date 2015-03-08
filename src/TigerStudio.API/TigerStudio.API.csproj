@@ -239,6 +239,10 @@
       <Project>{31808348-D9F2-400E-8AEA-DF2E38D70DCD}</Project>
       <Name>TigerStudio.Users</Name>
     </ProjectReference>
+    <ProjectReference Include="Modules\TigerStudio.Wechat\TigerStudio.Wechat.csproj">
+      <Project>{7183e0d5-8504-4e86-9317-747e2ce5f84b}</Project>
+      <Name>TigerStudio.Wechat</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

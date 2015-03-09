@@ -32,18 +32,19 @@ namespace TigerStudio.Wechat.Controllers
             { Content = new StringContent(stringToReturn, Encoding.UTF8, "text/html") };
         }
 
+        // <xml><URL><![CDATA[http://tigerstudioapi.azurewebsites.net/api/wechat/message]]></URL><ToUserName><![CDATA[tigerartstudio]]></ToUserName><FromUserName><![CDATA[supertigerzou]]></FromUserName><CreateTime>1448841860</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[test]]></Content><MsgId>1234367812123456</MsgId></xml>
         [Route("message")]
         [HttpPost]
         public HttpResponseMessage ReplyUser(HttpRequestMessage request)
         {
             var reader = new StreamReader(request.Content.ReadAsStreamAsync().Result);
             var inputMessageXml = reader.ReadToEnd();
-            Debug.WriteLine(inputMessageXml);
-            Trace.WriteLine(inputMessageXml);
+            inputMessageXml =
+                "<xml><URL><![CDATA[http://tigerstudioapi.azurewebsites.net/api/wechat/message]]></URL><ToUserName><![CDATA[tigerartstudio]]></ToUserName><FromUserName><![CDATA[supertigerzou]]></FromUserName><CreateTime>1448841860</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[test]]></Content><MsgId>1234367812123456</MsgId></xml>";
             var inputMessage = Message.ConvertMessage(XElement.Parse(inputMessageXml));
 
             return new HttpResponseMessage() { Content = new StringContent(
-                inputMessage.ToXml().ToString(), Encoding.UTF8, "xml/application") };
+                inputMessage.ReplyContent("hello").ToXml().ToString(), Encoding.UTF8, "xml/application") };
         }
 
         private bool CheckSignature(string signature, string timestamp, string nonce)

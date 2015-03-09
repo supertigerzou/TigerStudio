@@ -33,6 +33,7 @@ namespace ifunction.WebChatApi.Contract
         public MediaMessage()
             : base(MessageType.Image)
         {
+            this.Type = MessageType.News;
             this.ImageCollection = new ImageObjectCollection();
         }
 
@@ -43,6 +44,7 @@ namespace ifunction.WebChatApi.Contract
         protected override void FillXmlData(XElement xml)
         {
             base.FillXmlData(xml);
+            xml.SetValue("ArticleCount", "1");
 
             if (this.ImageCollection != null)
             {

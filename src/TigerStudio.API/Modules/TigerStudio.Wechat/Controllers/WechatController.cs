@@ -49,17 +49,19 @@ namespace TigerStudio.Wechat.Controllers
             }
             else if (inputMessage is ContentMessage && ((ContentMessage) inputMessage).Content.Contains("图文测试"))
             {
-                replyContent = new StringContent(
-                    inputMessage.ReplyMedia(new List<ImageObject>
+                var mediaMessage = inputMessage.ReplyMedia(new List<ImageObject>
+                {
+                    new ImageObject()
                     {
-                        new ImageObject()
-                        {
-                            Description = "this is a test message",
-                            ImageUrl = "http://fdfs.xmcdn.com/group6/M07/7E/75/wKgDhFT9UqzDtzQ0AAG7SYHnY2k769.jpg",
-                            Title = "test",
-                            Url = "http://mp.weixin.qq.com/s?__biz=MzA5NTU0MTMzOQ==&mid=204860621&idx=1&sn=ce5c822c25bc7526c36a4ca104bf04c8#rd"
-                        }
-                    }).ToXml().ToString(), Encoding.UTF8, "xml/application");
+                        Description = "this is a test message",
+                        ImageUrl = "http://fdfs.xmcdn.com/group6/M07/7E/75/wKgDhFT9UqzDtzQ0AAG7SYHnY2k769.jpg",
+                        Title = "test",
+                        Url =
+                            "http://mp.weixin.qq.com/s?__biz=MzA5NTU0MTMzOQ==&mid=204860621&idx=1&sn=ce5c822c25bc7526c36a4ca104bf04c8#rd"
+                    }
+                });
+
+                replyContent = new StringContent(mediaMessage.ToXml().ToString(), Encoding.UTF8, "xml/application");
             }
             else
             {

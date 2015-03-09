@@ -44,7 +44,10 @@ namespace ifunction.WebChatApi.Contract
         {
             base.FillXmlData(xml);
 
-
+            if (this.ImageCollection != null)
+            {
+                xml.Add(this.ImageCollection.ToXml());
+            }
         }
     }
 }

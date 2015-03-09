@@ -44,7 +44,7 @@ namespace ifunction.WebChatApi.Contract
         protected override void FillXmlData(XElement xml)
         {
             base.FillXmlData(xml);
-            xml.SetValue("ArticleCount", "1");
+            xml.SetValue("ArticleCount", "1", true);
 
             if (this.ImageCollection != null)
             {

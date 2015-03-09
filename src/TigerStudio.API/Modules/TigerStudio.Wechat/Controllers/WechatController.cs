@@ -39,12 +39,35 @@ namespace TigerStudio.Wechat.Controllers
         {
             var reader = new StreamReader(request.Content.ReadAsStreamAsync().Result);
             var inputMessageXml = reader.ReadToEnd();
-            inputMessageXml =
-                "<xml><URL><![CDATA[http://tigerstudioapi.azurewebsites.net/api/wechat/message]]></URL><ToUserName><![CDATA[tigerartstudio]]></ToUserName><FromUserName><![CDATA[supertigerzou]]></FromUserName><CreateTime>1448841860</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[test]]></Content><MsgId>1234367812123456</MsgId></xml>";
             var inputMessage = Message.ConvertMessage(XElement.Parse(inputMessageXml));
 
-            return new HttpResponseMessage() { Content = new StringContent(
-                inputMessage.ReplyContent("hello").ToXml().ToString(), Encoding.UTF8, "xml/application") };
+            StringContent replyContent;
+            if (inputMessage is ContentMessage && ((ContentMessage) inputMessage).Content.Contains("葫芦"))
+            {
+                replyContent = new StringContent(
+                    inputMessage.ReplyContent("请使用菜单收听，谢谢！").ToXml().ToString(), Encoding.UTF8, "xml/application");
+            }
+            else if (inputMessage is ContentMessage && ((ContentMessage) inputMessage).Content.Contains("图文测试"))
+            {
+                replyContent = new StringContent(
+                    inputMessage.ReplyMedia(new List<ImageObject>
+                    {
+                        new ImageObject()
+                        {
+                            Description = "this is a test message",
+                            ImageUrl = "http://fdfs.xmcdn.com/group6/M07/7E/75/wKgDhFT9UqzDtzQ0AAG7SYHnY2k769.jpg",
+                            Title = "test",
+                            Url = "microsoft.com"
+                        }
+                    }).ToXml().ToString(), Encoding.UTF8, "xml/application");
+            }
+            else
+            {
+                replyContent = new StringContent(
+                    inputMessage.ReplyContent("您请求的项目暂时不存在，加微信号supertigerzou直接告诉我们您的需求.").ToXml().ToString(), Encoding.UTF8, "xml/application");
+            }
+
+            return new HttpResponseMessage() { Content = replyContent };
         }
 
         private bool CheckSignature(string signature, string timestamp, string nonce)

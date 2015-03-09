@@ -57,7 +57,7 @@ namespace TigerStudio.Wechat.Controllers
                             Description = "this is a test message",
                             ImageUrl = "http://fdfs.xmcdn.com/group6/M07/7E/75/wKgDhFT9UqzDtzQ0AAG7SYHnY2k769.jpg",
                             Title = "test",
-                            Url = "microsoft.com"
+                            Url = "http://mp.weixin.qq.com/s?__biz=MzA5NTU0MTMzOQ==&mid=204860621&idx=1&sn=ce5c822c25bc7526c36a4ca104bf04c8#rd"
                         }
                     }).ToXml().ToString(), Encoding.UTF8, "xml/application");
             }

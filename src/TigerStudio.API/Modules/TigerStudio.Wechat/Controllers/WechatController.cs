@@ -38,6 +38,7 @@ namespace TigerStudio.Wechat.Controllers
         {
             var reader = new StreamReader(request.Content.ReadAsStreamAsync().Result);
             var inputMessageXml = reader.ReadToEnd();
+            Debug.WriteLine(inputMessageXml);
             var inputMessage = Message.ConvertMessage(XElement.Parse(inputMessageXml));
 
             return new HttpResponseMessage() { Content = new StringContent(

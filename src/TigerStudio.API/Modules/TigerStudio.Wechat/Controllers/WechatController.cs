@@ -61,7 +61,11 @@ namespace TigerStudio.Wechat.Controllers
                     }
                 });
 
-                replyContent = new StringContent(mediaMessage.ToXml().ToString(), Encoding.UTF8, "xml/application");
+                var testString = string.Format("<xml><ToUserName><![CDATA[{0}]]></ToUserName><FromUserName><![CDATA[{1}]]></FromUserName><CreateTime>12345678</CreateTime><MsgType><![CDATA[news]]></MsgType><ArticleCount>1</ArticleCount><Articles><item><Title><![CDATA[title1]]></Title><Description><![CDATA[description1]]></Description><PicUrl><![CDATA[http://mmbiz.qpic.cn/mmbiz/u1YPNZkLJC6zYpt4jJJXRyYiaXMzrVyIFqeRicRUq4kmhzzAAjTIzYAp8EJ7BXbQ4ibicsv9sjr18QBbwkoAxO75GA/640?tp=webp&wxfrom=5]]></PicUrl><Url><![CDATA[http://mp.weixin.qq.com/s?__biz=MzA5NTU0MTMzOQ==&mid=204860621&idx=1&sn=ce5c822c25bc7526c36a4ca104bf04c8#rd]]></Url></item></Articles></xml>"
+                    , mediaMessage.ToUserName, mediaMessage.FromUserName);
+
+
+                replyContent = new StringContent(/*mediaMessage.ToXml().ToString()*/testString, Encoding.UTF8, "xml/application");
             }
             else
             {

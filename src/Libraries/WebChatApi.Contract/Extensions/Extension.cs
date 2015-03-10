@@ -99,7 +99,7 @@ namespace ifunction.WebChatApi
         /// <returns>XElement.</returns>
         public static XElement CreateXmlNode(this object anyObject, string nodeName = null)
         {
-            return XElement.Parse(string.Format("<{0}></{0}>", !string.IsNullOrWhiteSpace(nodeName) ? nodeName : "Item"));
+            return XElement.Parse(string.Format("<{0}></{0}>", !string.IsNullOrWhiteSpace(nodeName) ? nodeName : "item"));
         }
 
         /// <summary>

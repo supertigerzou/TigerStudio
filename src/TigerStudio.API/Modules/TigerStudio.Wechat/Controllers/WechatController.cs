@@ -32,7 +32,7 @@ namespace TigerStudio.Wechat.Controllers
         }
 
         // <xml><URL><![CDATA[http://tigerstudioapi.azurewebsites.net/api/wechat/message]]></URL><ToUserName><![CDATA[tigerartstudio]]></ToUserName><FromUserName><![CDATA[supertigerzou]]></FromUserName><CreateTime>1448841860</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[test]]></Content><MsgId>1234367812123456</MsgId></xml>
-        [Route("message")]
+        [Route("")]
         [HttpPost]
         public HttpResponseMessage ReplyUser(HttpRequestMessage request)
         {

@@ -53,9 +53,9 @@ namespace TigerStudio.Wechat.Controllers
                 {
                     new ImageObject()
                     {
-                        Description = "this is a test message",
+                        Description = "world",
                         ImageUrl = "http://mmbiz.qpic.cn/mmbiz/u1YPNZkLJC6zYpt4jJJXRyYiaXMzrVyIFqeRicRUq4kmhzzAAjTIzYAp8EJ7BXbQ4ibicsv9sjr18QBbwkoAxO75GA/640?tp=webp&wxfrom=5",
-                        Title = "test",
+                        Title = "hello",
                         Url =
                             "http://mp.weixin.qq.com/s?__biz=MzA5NTU0MTMzOQ==&mid=204860621&idx=1&sn=ce5c822c25bc7526c36a4ca104bf04c8#rd"
                     }

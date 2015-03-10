@@ -178,3 +178,6 @@ connections.config
 
 # program generated pics
 thumbs/
+
+# frontend folder
+frontend/

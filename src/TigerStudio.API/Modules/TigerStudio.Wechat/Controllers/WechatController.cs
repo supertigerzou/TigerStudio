@@ -65,7 +65,7 @@ namespace TigerStudio.Wechat.Controllers
                     , mediaMessage.ToUserName, mediaMessage.FromUserName);
 
 
-                replyContent = new StringContent(/*mediaMessage.ToXml().ToString()*/testString, Encoding.UTF8, "xml/application");
+                replyContent = new StringContent(mediaMessage.ToXml().ToString(SaveOptions.DisableFormatting), Encoding.UTF8, "xml/application");
             }
             else
             {

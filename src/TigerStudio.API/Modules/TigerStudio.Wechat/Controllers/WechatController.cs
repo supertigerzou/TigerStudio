@@ -41,49 +41,39 @@ namespace TigerStudio.Wechat.Controllers
             var inputMessage = Message.ConvertMessage(XElement.Parse(inputMessageXml));
 
             StringContent replyContent = null;
-            if (inputMessage is EventMessage)
+            if (inputMessage is ContentMessage)
             {
-                var mediaMessage = inputMessage.ReplyMedia(new List<ImageObject>
-                    {
-                        new ImageObject()
-                        {
-                            Description = "world",
-                            ImageUrl = "http://mmbiz.qpic.cn/mmbiz/u1YPNZkLJC6zYpt4jJJXRyYiaXMzrVyIFqeRicRUq4kmhzzAAjTIzYAp8EJ7BXbQ4ibicsv9sjr18QBbwkoAxO75GA/640?tp=webp&wxfrom=5",
-                            Title = "hello",
-                            Url =
-                                "http://mp.weixin.qq.com/s?__biz=MzA5NTU0MTMzOQ==&mid=204860621&idx=1&sn=ce5c822c25bc7526c36a4ca104bf04c8#rd"
-                        }
-                    });
-
-                replyContent = new StringContent(mediaMessage.ToXml().ToString(SaveOptions.DisableFormatting), Encoding.UTF8, "xml/application");
-            }
-            else if (inputMessage is ContentMessage)
-            {
-                if (((ContentMessage)inputMessage).Content.Contains("葫芦"))
+                var contentMessage = (ContentMessage) inputMessage;
+                if (contentMessage.Content.Contains("葫芦"))
                     replyContent = new StringContent(
                         inputMessage.ReplyContent("请使用菜单收听，谢谢！").ToXml().ToString(), Encoding.UTF8, "xml/application");
-                else if (((ContentMessage)inputMessage).Content.Contains("图文测试"))
+                else if (contentMessage.Content.Contains("图文测试"))
                 {
                     var mediaMessage = inputMessage.ReplyMedia(new List<ImageObject>
                     {
-                        new ImageObject()
+                        new ImageObject
                         {
-                            Description = "world",
-                            ImageUrl = "http://mmbiz.qpic.cn/mmbiz/u1YPNZkLJC6zYpt4jJJXRyYiaXMzrVyIFqeRicRUq4kmhzzAAjTIzYAp8EJ7BXbQ4ibicsv9sjr18QBbwkoAxO75GA/640?tp=webp&wxfrom=5",
-                            Title = "hello",
-                            Url =
-                                "http://mp.weixin.qq.com/s?__biz=MzA5NTU0MTMzOQ==&mid=204860621&idx=1&sn=ce5c822c25bc7526c36a4ca104bf04c8#rd"
+                            Description = "",
+                            ImageUrl = "https://mmbiz.qlogo.cn/mmbiz/u1YPNZkLJC6SI64hPj9FlEvhj2hH4t6azlULlE05icc4qEnRKFNqv2LKlhhDu4iaeibHiawcRebTL6rSOdxr43pkYQ/0",
+                            Title = "葫芦娃",
+                            Url = "http://mp.weixin.qq.com/s?__biz=MzA5NTU0MTMzOQ==&mid=204243491&idx=1&sn=e3dff38e2f8816e95362466e0021902f#rd"
+                        },
+                        new ImageObject
+                        {
+                            Description = "",
+                            ImageUrl = "http://mmbiz.qpic.cn/mmbiz/u1YPNZkLJC7ZiaX1JJrQJiclnemAosfwGXPP0X5OvLnkvCTpAbPCzJRr9QxVn9Sib0GUDSeWasu9S3KfaCPiaqXYDA/640?tp=webp&wxfrom=5",
+                            Title = "第一集： 神峰奇遇",
+                            Url = "http://mp.weixin.qq.com/s?__biz=MzA5NTU0MTMzOQ==&mid=204243491&idx=2&sn=3131ea09b538535d6f41ac4aafc067d7#rd"
                         }
                     });
 
                     replyContent = new StringContent(mediaMessage.ToXml().ToString(SaveOptions.DisableFormatting), Encoding.UTF8, "xml/application");
                 }
             }
-            else
-            {
+        
+            if(replyContent == null)
                 replyContent = new StringContent(
                     inputMessage.ReplyContent("您请求的项目暂时不存在，加微信号supertigerzou直接告诉我们您的需求.").ToXml().ToString(), Encoding.UTF8, "xml/application");
-            }
 
             return new HttpResponseMessage() { Content = replyContent };
         }
